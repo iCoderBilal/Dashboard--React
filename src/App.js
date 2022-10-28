@@ -1,14 +1,15 @@
-import {React, useEffect} from 'react';
+import {React, useEffect, useState} from 'react';
 import { BrowserRouter,Routes, Route } from 'react-router-dom';
 import {FiSettings} from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
 import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
 import './App.css';
+import { useStateContext } from './contexts/ContextProvider';
 
 
 function App() {
-  const activeMenu = true;
+const {activeMenu, setActiveMenu} = useStateContext();
   return (
    <BrowserRouter>
    <div className="flex relative dark:bg-main-dark-bg">
@@ -30,7 +31,9 @@ function App() {
       </div>
     )}
   <div className={` dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeMenu ? 'md:ml-72' : 'flex-2'}`}>
-  <div className=' fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'></div>
+  <div className=' fixed md:static  bg-slate-500 dark:bg-main-dark-bg navbar w-full'>
+    <Navbar/>
+  </div>
   </div>
 
 <div>
