@@ -15,7 +15,7 @@ const {activeMenu, setActiveMenu} = useStateContext();
    <div className="flex relative dark:bg-main-dark-bg">
     <div className="fixed right-4 bottom-4" style={{ zIndex:'1000' }}>
     <TooltipComponent content="Settings" position="Top">
-     <button type='button' className='text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white' style={{background: 'blue', borderRadius: '50%'}}>
+     <button type='button' className='text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white' style={{background: 'pink', borderRadius: '50%'}}>
     <FiSettings />
      </button>
     </TooltipComponent>
@@ -31,12 +31,12 @@ const {activeMenu, setActiveMenu} = useStateContext();
       </div>
     )}
   <div className={` dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeMenu ? 'md:ml-72' : 'flex-2'}`}>
-  <div className=' fixed md:static  bg-slate-500 dark:bg-main-dark-bg navbar w-full'>
+  <div className=' fixed md:static  bg-white-500 dark:bg-main-dark-bg navbar w-full'>
     <Navbar/>
   </div>
-  </div>
+ 
 
-<div>
+  <div>
   <Routes>
      {/* DASHBOARD */}
     <Route path='/' element = {<Ecommerce />}/>
@@ -66,6 +66,7 @@ const {activeMenu, setActiveMenu} = useStateContext();
  
  
   </Routes>
+</div>
 </div>
 
    </div>
