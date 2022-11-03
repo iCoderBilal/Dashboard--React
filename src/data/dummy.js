@@ -630,7 +630,7 @@ export const earningData = [
     title: 'Products',
     iconColor: 'rgb(255, 244, 229)',
     iconBg: 'rgb(254, 201, 15)',
-    pcColor: 'green-600',
+    pcColor: 'green-600'
   },
   {
     icon: <FiBarChart />,
