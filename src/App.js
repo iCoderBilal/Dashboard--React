@@ -37,6 +37,8 @@ const {activeMenu, setActiveMenu} = useStateContext();
  
 
   <div>
+
+    <ThemeSettings/>
   <Routes>
      {/* DASHBOARD */}
     <Route path='/' element = {<Ecommerce />}/>
