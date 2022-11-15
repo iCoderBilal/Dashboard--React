@@ -15,7 +15,7 @@ const handleClick = (clicked) =>{
     setIsClicked({...intialState, [clicked]:true})
 }
 const [currentColor, setCurrentColor] = useState('#7352FF');
-const [currentMode, setCurrentMode] = useState('Light');
+const [currentMode, setCurrentMode] = useState('Dark');
 
 const [screenSize, setScreenSize] = useState(undefined);
 const [themeSettings, setThemeSettings] = useState(false);
@@ -24,17 +24,19 @@ const [themeSettings, setThemeSettings] = useState(false);
 const setMode = (e)=>{
     setCurrentMode(e.target.value);
     localStorage.setItem("themeMode", e.target.value);
+    setThemeSettings(false);
 
 }
 
-const setColor = (e)=>{
-    setCurrentColor(e.target.value);
-    localStorage.setItem("colorMode", e.target.value);
+const setColor = (color)=>{
+    setCurrentColor(color);
+    localStorage.setItem("colorMode", color);
+    setThemeSettings(false);
     
 }
 
 return (
-    <StateContext.Provider  value={{activeMenu:activeMenu, setActiveMenu:setActiveMenu, isClicked:isClicked, setIsClicked:setIsClicked, handleClick:handleClick, screenSize:screenSize, setScreenSize:setScreenSize, currentColor:currentColor, setCurrentColor:setCurrentColor, currentMode:currentMode, setCurrentMode:setCurrentMode, themeSettings:themeSettings, setThemeSettings:setThemeSettings}}>
+    <StateContext.Provider  value={{activeMenu:activeMenu, setActiveMenu:setActiveMenu, isClicked:isClicked, setIsClicked:setIsClicked, handleClick:handleClick, screenSize:screenSize, setScreenSize:setScreenSize, currentColor:currentColor, setCurrentColor:setCurrentColor, currentMode:currentMode, setCurrentMode:setCurrentMode, themeSettings:themeSettings, setThemeSettings:setThemeSettings, setMode:setMode, setColor:setColor}}>
      {children}
     </StateContext.Provider>
 )
