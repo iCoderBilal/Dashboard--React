@@ -9,13 +9,15 @@ import { useStateContext } from './contexts/ContextProvider';
 
 
 function App() {
-const {activeMenu, setActiveMenu} = useStateContext();
+const {activeMenu, setActiveMenu, themeSettings, setThemeSettings} = useStateContext();
   return (
    <BrowserRouter>
    <div className="flex relative dark:bg-main-dark-bg">
     <div className="fixed right-4 bottom-4" style={{ zIndex:'1000' }}>
     <TooltipComponent content="Settings" position="Top">
-     <button type='button' className='text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white' style={{background: 'pink', borderRadius: '50%'}}>
+     <button
+       onClick={() =>{setThemeSettings(true)}}
+     type='button' className='text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white' style={{background: 'pink', borderRadius: '50%' }} >
     <FiSettings />
      </button>
     </TooltipComponent>
@@ -38,7 +40,7 @@ const {activeMenu, setActiveMenu} = useStateContext();
 
   <div>
 
-    <ThemeSettings/>
+   { themeSettings && <ThemeSettings/>}
   <Routes>
      {/* DASHBOARD */}
     <Route path='/' element = {<Ecommerce />}/>
