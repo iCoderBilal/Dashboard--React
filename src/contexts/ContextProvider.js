@@ -14,6 +14,8 @@ const [isClicked, setIsClicked] = useState(intialState);
 const handleClick = (clicked) =>{
     setIsClicked({...intialState, [clicked]:true})
 }
+const [currentColor, setCurrentColor] = useState('#bbbbbb');
+const [currentMode, setCurrentMode] = useState('Light');
 
 const [screenSize, setScreenSize] = useState(undefined);
 return (

@@ -6,6 +6,8 @@ import { themeColors } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 
 const ThemeSettings = () => {
+  const { setColor, setMode, currentMode, currentColor, setThemeSettings } = useStateContext();
+  
   return (
     <div className="bg-half-transparent w-screen fixed nav-item top-0 right-0">
       <div className="float-right h-screen dark:text-gray-200  bg-white dark:bg-[#484B52] w-400">
@@ -63,7 +65,7 @@ const ThemeSettings = () => {
           <p className="font-semibold text-xl ">Theme Colors</p>
           <div className="flex gap-3">
             {themeColors.map((item, index) => (
-              <TooltipComponent key={index} content={item.name} position="TopCenter">
+              <TooltipComponent key={index} content={item.name} position="BottomCenter">
                 <div
                   className="relative mt-2 cursor-pointer flex gap-5 items-center"
                   key={item.name}
@@ -71,8 +73,10 @@ const ThemeSettings = () => {
                   <button
                     type="button"
                     className="h-10 w-10 rounded-full cursor-pointer"
+                    style={{backgroundColor:item.color}}
+                    onClick={()=>{}}
                   >
-                    <BsCheck className={`ml-2 text-2xl text-white ${true? 'block' : 'hidden'}`} />
+                    <BsCheck className={`ml-2 text-2xl text-white ${false? 'block' : 'hidden'}`} />
                   </button>
                 </div>
               </TooltipComponent>
